@@ -9,6 +9,13 @@ die() {
     exit 1
 }
 
+require() {
+    if ! type "$1" > /dev/null; then
+        die "Require $1, please install it first."
+    fi
+}
+
+require "jsfmt"
 
 VIMHOME=~/.vim/my-vimrc
 VUNDLE_INSTALL_PATH=~/.vim/bundle/Vundle.vim
