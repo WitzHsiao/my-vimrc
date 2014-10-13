@@ -20,7 +20,14 @@ if [ ! -d "$VUNDLE_INSTALL_PATH" ]; then
 fi
 
 echo "Vundle has already been installed, keep installing!"
-git clone https://github.com/WitzHsiao/my-vimrc.git "$VIMHOME"
+
+if [ ! -d "$VIMHOME" ]; then
+    git clone https://github.com/WitzHsiao/my-vimrc.git "$VIMHOME"
+else
+    cd "$VIMHOME"
+    git pull
+fi
+
 # install vimrc
 ORIGINAL_VIMRC=~/.vimrc
 if [ -f "$ORIGINAL_VIMRC" ]; then
