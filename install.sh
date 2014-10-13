@@ -23,11 +23,11 @@ echo "Vundle has already been installed, keep installing!"
 git clone https://github.com/WitzHsiao/my-vimrc.git "$VIMHOME"
 # install vimrc
 ORIGINAL_VIMRC=~/.vimrc
-if [ ! -f "$ORIGINAL_VIMRC" ]; then
+if [ -f "$ORIGINAL_VIMRC" ]; then
     echo "Backing up your original .vimrc to .vimrc.bk"
     mv ~/.vimrc ~/.vimrc.bk
-    ln -s "$VIMHOME"/vimrc ~/.vimrc
 fi
+ln -s "$VIMHOME"/vimrc ~/.vimrc
 
 vim +PluginInstall +qall
 
