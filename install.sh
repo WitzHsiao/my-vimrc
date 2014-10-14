@@ -15,6 +15,7 @@ require() {
     fi
 }
 
+require "node"
 require "jsfmt"
 
 VIMHOME=~/.vim/my-vimrc
