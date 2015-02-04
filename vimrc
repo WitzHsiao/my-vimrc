@@ -4,7 +4,7 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
-set rtp+=/usr/local/Cellar/go/1.3/libexec/misc/vim
+set rtp+=$GOROOT/misc/vim
 call vundle#begin()
 " " alternatively, pass a path where Vundle should install plugins
 " "call vundle#begin('~/some/path/here')
@@ -29,6 +29,16 @@ Plugin 'mephux/vim-jsfmt'
 Plugin 'scrooloose/syntastic'
 Plugin 'fatih/vim-go'
 Plugin 'mru.vim'
+Plugin 'c.vim'
+Plugin 'Yggdroot/indentLine'
+"vim-autocomplpop
+Plugin 'L9'
+Plugin 'othree/vim-autocomplpop'
+"vim-snipmate
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets' "Optional
 "vim-markdown
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
@@ -58,12 +68,23 @@ let g:js_fmt_autosave = 1
 """""""""" for syntastic
 let g:syntastic_php_checkers = ['php']
 let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_cpp_no_include_search = 1
+let g:syntastic_cpp_no_default_include_dirs = 1
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+"let g:syntastic_cpp_compiler = 'clang++'
+"let g:syntastic_cpp_remove_include_errors = 1
+"let b:syntastic_cpp_cflags = '-I/usr/include/libsoup-2.4'
+"let g:syntastic_cpp_check_header = 1
+"let g:syntastic_cpp_include_dirs = ['/System/Library/Frameworks/JavaVM.framework/Headers', '/usr/local/Cellar/android-ndk-r9d/r9d/platforms/android-19/arch-arm/usr/include/', '../Classes/']
 
 """""""""" for solarized
 let g:solarized_termcolors=256
 
 """""""""" for vim-markdown
 let g:vim_markdown_folding_disabled=1
+
+"""""""""" for snipmate+autocomplpop
+let g:acp_behaviorSnipmateLength=1
 
 
 syntax enable       " enable syntax processing
@@ -104,3 +125,25 @@ endfunction
 au FileType xml,html,xhtml,javascript call SetAltPrefs()
 au BufWritePre *.html normal gg=G
 au BufWritePre * :%s/\s\+$//e
+
+au BufRead,BufNewFile Podfile set filetype=ruby
+
+"set pa+=~/workspace/cocos/cocos2d-x/cocos/platform/android/jni/
+"set pa+=/System/Library/Frameworks/JavaVM.framework/Headers
+
+
+"au vimenter *  NERDTree " toggle NERDTree when open vim
+"au vimenter * wincmd p  " jump to previous window
+
+"autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+"" Close all open buffers on entering a window if the only
+"" buffer that's left is the NERDTree buffer
+"function! s:CloseIfOnlyNerdTreeLeft()
+  "if exists("t:NERDTreeBufName")
+    "if bufwinnr(t:NERDTreeBufName) != -1
+      "if winnr("$") == 1
+        "q
+      "endif
+    "endif
+  "endif
+"endfunction
