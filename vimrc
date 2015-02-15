@@ -14,6 +14,8 @@ Plugin 'gmarik/Vundle.vim'
 
 
 " Plugins
+Plugin 'Lokaltog/vim-easymotion'
+Bundle 'mileszs/ack.vim'
 Plugin 'honza/dockerfile.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
@@ -104,6 +106,7 @@ set wildmenu        " visual autocomplete for command menu
 set showmatch       " highlight matching [{()}]
 set autoread        " auto reload file when changed
 set backspace=indent,eol,start " backspace over everything in insert mode
+set clipboard=unnamed          " Accessing the system clipboard
 
 set incsearch       " search as characters are entered
 set hlsearch        " highlight matches
