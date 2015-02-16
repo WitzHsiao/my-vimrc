@@ -14,6 +14,8 @@ Plugin 'gmarik/Vundle.vim'
 
 
 " Plugins
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
 Plugin 'Lokaltog/vim-easymotion'
 Bundle 'mileszs/ack.vim'
 Plugin 'honza/dockerfile.vim'
@@ -88,6 +90,9 @@ let g:vim_markdown_folding_disabled=1
 """""""""" for snipmate+autocomplpop
 let g:acp_behaviorSnipmateLength=1
 
+"""""""""" for gist-vim
+let g:gist_post_private = 1
+
 
 syntax enable       " enable syntax processing
 set background=dark
@@ -130,6 +135,10 @@ au BufWritePre *.html normal gg=G
 au BufWritePre * :%s/\s\+$//e
 
 au BufRead,BufNewFile Podfile set filetype=ruby
+
+nmap <C-n> :NERDTreeToggle<CR>
+nmap <C-l> :noh<CR>
+nmap <leader>q :qa<CR>
 
 "set pa+=~/workspace/cocos/cocos2d-x/cocos/platform/android/jni/
 "set pa+=/System/Library/Frameworks/JavaVM.framework/Headers
