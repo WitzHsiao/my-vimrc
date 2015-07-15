@@ -14,10 +14,13 @@ Plugin 'gmarik/Vundle.vim'
 
 
 " Plugins
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
+Plugin 'nsf/gocode', {'rtp': 'vim/'}
+Plugin 'mattn/webapi-vim' " gist-vim
+Plugin 'WitzHsiao/gist-vim' " gist-vim
+Plugin 'Valloric/MatchTagAlways'
+Plugin 'mattn/emmet-vim'
 Plugin 'Lokaltog/vim-easymotion'
-Bundle 'mileszs/ack.vim'
+Plugin 'mileszs/ack.vim'
 Plugin 'honza/dockerfile.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
@@ -27,29 +30,30 @@ Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'ervandew/supertab'
 Plugin 'jgdavey/tslime.vim'
-Plugin 'moll/vim-node'
-Plugin 'mattn/emmet-vim'
 Plugin 'mephux/vim-jsfmt'
 Plugin 'scrooloose/syntastic'
 Plugin 'fatih/vim-go'
 Plugin 'mru.vim'
-Plugin 'c.vim'
 Plugin 'Yggdroot/indentLine'
+"Plugin 'honza/vim-snippets'
 "vim-autocomplpop
-Plugin 'L9'
-Plugin 'othree/vim-autocomplpop'
+"Plugin 'L9'
+"Plugin 'othree/vim-autocomplpop'
 "vim-snipmate
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets' "Optional
+"Plugin 'MarcWeber/vim-addon-mw-utils'
+"Plugin 'tomtom/tlib_vim'
+"Plugin 'garbas/vim-snipmate'
 "vim-markdown
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 
 "syntax
+Plugin 'pangloss/vim-javascript'
+Plugin 'moll/vim-node'
+Plugin 'othree/html5.vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'evanmiller/nginx-vim-syntax'
+Plugin 'c.vim'
 """"""""""
 
 " All of your Plugins must be added before the following line
@@ -58,46 +62,40 @@ filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 
-
-""""""""""" for go
+""""""""""" go
 au Filetype go map <leader>t :Tmux go test<CR>
 au Filetype go map <leader>r :GoRun<CR>
+set completeopt-=preview
 
-""""""""""" for go
+""""""""""" superTab
 let g:SuperTabDefaultCompletionType = "context"
 
-""""""""""" for jsfmt
+""""""""""" jsfmt
 let g:js_fmt_autosave = 1
 
-"""""""""" for syntastic
+"""""""""" syntastic
 let g:syntastic_php_checkers = ['php']
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_cpp_no_include_search = 1
 let g:syntastic_cpp_no_default_include_dirs = 1
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
-"let g:syntastic_cpp_compiler = 'clang++'
-"let g:syntastic_cpp_remove_include_errors = 1
-"let b:syntastic_cpp_cflags = '-I/usr/include/libsoup-2.4'
-"let g:syntastic_cpp_check_header = 1
-"let g:syntastic_cpp_include_dirs = ['/System/Library/Frameworks/JavaVM.framework/Headers', '/usr/local/Cellar/android-ndk-r9d/r9d/platforms/android-19/arch-arm/usr/include/', '../Classes/']
 
-"""""""""" for solarized
+"""""""""" solarized
 let g:solarized_termcolors=256
 
-"""""""""" for vim-markdown
+"""""""""" vim-markdown
 let g:vim_markdown_folding_disabled=1
 
-"""""""""" for snipmate+autocomplpop
-let g:acp_behaviorSnipmateLength=1
+"""""""""" snipmate+autocomplpop
+"let g:acp_behaviorSnipmateLength=1
 
-"""""""""" for gist-vim
+"""""""""" gist-vim
 let g:gist_post_private = 1
 
 
 syntax enable       " enable syntax processing
 set background=dark
 colorscheme solarized
-"set autoindent
 set smartindent
 set shiftwidth=4    " 設定縮排寬度
 set tabstop=4       " number of visual spaces per TAB
@@ -129,10 +127,7 @@ function! SetAltPrefs()
     set softtabstop=2
     set shiftwidth=2
 endfunction
-
 au FileType xml,html,xhtml,javascript call SetAltPrefs()
-au BufWritePre *.html normal gg=G
-au BufWritePre * :%s/\s\+$//e
 
 au BufRead,BufNewFile Podfile set filetype=ruby
 
