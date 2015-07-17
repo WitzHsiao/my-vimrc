@@ -14,27 +14,41 @@ Plugin 'gmarik/Vundle.vim'
 
 
 " Plugins
-Plugin 'nsf/gocode', {'rtp': 'vim/'}
-Plugin 'mattn/webapi-vim' " gist-vim
-Plugin 'WitzHsiao/gist-vim' " gist-vim
-Plugin 'Valloric/MatchTagAlways'
-Plugin 'mattn/emmet-vim'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'mileszs/ack.vim'
-Plugin 'honza/dockerfile.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'bling/vim-airline'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'majutsushi/tagbar'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'ervandew/supertab'
-Plugin 'jgdavey/tslime.vim'
-Plugin 'mephux/vim-jsfmt'
+    " languages
 Plugin 'scrooloose/syntastic'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'mattn/emmet-vim'
+Plugin 'plasticboy/vim-markdown'
 Plugin 'fatih/vim-go'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'moll/vim-node'
+Plugin 'honza/dockerfile.vim'
+Plugin 'evanmiller/nginx-vim-syntax'
+Plugin 'solarnz/thrift.vim'
+Plugin 'davidhalter/jedi-vim' " python autocomplete
+    " completion
+Plugin 'ervandew/supertab'
+    " code display
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'gregsexton/MatchTag'
+    " integrations
+Plugin 'majutsushi/tagbar'
+Plugin 'mileszs/ack.vim'
+Plugin 'mattn/webapi-vim' " gist-vim
+Plugin 'mattn/gist-vim' " gist-vim
+    " interface
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
 Plugin 'mru.vim'
-Plugin 'Yggdroot/indentLine'
+    " commands
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'easymotion/vim-easymotion'
+    " other
+Plugin 'bling/vim-airline'
+
+"Plugin 'nsf/gocode', {'rtp': 'vim/'}
+"Plugin 'mephux/vim-jsfmt'
+"Plugin 'Yggdroot/indentLine'
 "Plugin 'honza/vim-snippets'
 "vim-autocomplpop
 "Plugin 'L9'
@@ -43,18 +57,13 @@ Plugin 'Yggdroot/indentLine'
 "Plugin 'MarcWeber/vim-addon-mw-utils'
 "Plugin 'tomtom/tlib_vim'
 "Plugin 'garbas/vim-snipmate'
-"vim-markdown
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+"Plugin 'godlygeek/tabular'
 
-"syntax
-Plugin 'pangloss/vim-javascript'
-Plugin 'moll/vim-node'
-Plugin 'othree/html5.vim'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'evanmiller/nginx-vim-syntax'
-Plugin 'c.vim'
+"Plugin 'pangloss/vim-javascript'
+"Plugin 'othree/html5.vim'
+"Plugin 'c.vim'
 """"""""""
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -62,8 +71,9 @@ filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 
+
 """"""""""" go
-au Filetype go map <leader>t :Tmux go test<CR>
+"au Filetype go map <leader>t :Tmux go test<CR>
 au Filetype go map <leader>r :GoRun<CR>
 set completeopt-=preview
 
@@ -112,7 +122,7 @@ set backspace=indent,eol,start " backspace over everything in insert mode
 set clipboard=unnamed          " Accessing the system clipboard
 
 set incsearch       " search as characters are entered
-set hlsearch        " highlight matches
+set hlsearch        " highlight searches
 
 " file encoding
 set encoding=utf-8
@@ -120,6 +130,10 @@ set fileencodings=utf-8
 
 set showmode        " display the mode currently use
 set laststatus=2    " for displaying airline
+
+" folding
+set fdm=indent
+set fdl=99
 
 
 function! SetAltPrefs()
@@ -137,7 +151,6 @@ nmap <leader>q :qa<CR>
 
 "set pa+=~/workspace/cocos/cocos2d-x/cocos/platform/android/jni/
 "set pa+=/System/Library/Frameworks/JavaVM.framework/Headers
-
 
 "au vimenter *  NERDTree " toggle NERDTree when open vim
 "au vimenter * wincmd p  " jump to previous window
