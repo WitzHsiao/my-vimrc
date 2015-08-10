@@ -1,4 +1,4 @@
-"""""""" Vundle Settings
+" Vundle Settings
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -46,7 +46,6 @@ Plugin 'easymotion/vim-easymotion'
     " other
 Plugin 'bling/vim-airline'
 
-"Plugin 'nsf/gocode', {'rtp': 'vim/'}
 "Plugin 'mephux/vim-jsfmt'
 "Plugin 'Yggdroot/indentLine'
 "Plugin 'honza/vim-snippets'
@@ -62,7 +61,7 @@ Plugin 'bling/vim-airline'
 "Plugin 'pangloss/vim-javascript'
 "Plugin 'othree/html5.vim'
 "Plugin 'c.vim'
-""""""""""
+"
 
 
 " All of your Plugins must be added before the following line
@@ -72,35 +71,47 @@ filetype plugin indent on    " required
 "filetype plugin on
 
 
-""""""""""" go
+" go
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 "au Filetype go map <leader>t :Tmux go test<CR>
-au Filetype go map <leader>r :GoRun<CR>
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
 set completeopt-=preview
+let g:go_fmt_command = "goimports"
 
-""""""""""" superTab
+" superTab
 let g:SuperTabDefaultCompletionType = "context"
 
-""""""""""" jsfmt
+" jsfmt
 let g:js_fmt_autosave = 1
 
-"""""""""" syntastic
+" syntastic
 let g:syntastic_php_checkers = ['php']
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_cpp_no_include_search = 1
 let g:syntastic_cpp_no_default_include_dirs = 1
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
-"""""""""" solarized
+" solarized
 let g:solarized_termcolors=256
 
-"""""""""" vim-markdown
+" vim-markdown
 let g:vim_markdown_folding_disabled=1
 
-"""""""""" snipmate+autocomplpop
+" snipmate+autocomplpop
 "let g:acp_behaviorSnipmateLength=1
 
-"""""""""" gist-vim
+" gist-vim
 let g:gist_post_private = 1
+
+" strip trailing spaces on save
+autocmd BufWritePre * :%s/\s\+$//e
 
 
 syntax enable       " enable syntax processing
