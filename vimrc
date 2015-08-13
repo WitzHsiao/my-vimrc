@@ -12,7 +12,6 @@ call vundle#begin()
 " " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-
 " Plugins
     " languages
 Plugin 'scrooloose/syntastic'
@@ -25,9 +24,11 @@ Plugin 'moll/vim-node'
 Plugin 'honza/dockerfile.vim'
 Plugin 'evanmiller/nginx-vim-syntax'
 Plugin 'solarnz/thrift.vim'
-Plugin 'davidhalter/jedi-vim' " python autocomplete
+"Plugin 'davidhalter/jedi-vim' " python autocomplete
+Plugin 'derekwyatt/vim-scala'
     " completion
-Plugin 'ervandew/supertab'
+"Plugin 'ervandew/supertab'
+Plugin 'Shougo/neocomplete.vim'
     " code display
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'gregsexton/MatchTag'
@@ -49,10 +50,7 @@ Plugin 'bling/vim-airline'
 "Plugin 'mephux/vim-jsfmt'
 "Plugin 'Yggdroot/indentLine'
 "Plugin 'honza/vim-snippets'
-"vim-autocomplpop
-"Plugin 'L9'
-"Plugin 'othree/vim-autocomplpop'
-"vim-snipmate
+    "vim-snipmate
 "Plugin 'MarcWeber/vim-addon-mw-utils'
 "Plugin 'tomtom/tlib_vim'
 "Plugin 'garbas/vim-snipmate'
@@ -61,7 +59,6 @@ Plugin 'bling/vim-airline'
 "Plugin 'pangloss/vim-javascript'
 "Plugin 'othree/html5.vim'
 "Plugin 'c.vim'
-"
 
 
 " All of your Plugins must be added before the following line
@@ -86,7 +83,7 @@ set completeopt-=preview
 let g:go_fmt_command = "goimports"
 
 " superTab
-let g:SuperTabDefaultCompletionType = "context"
+"let g:SuperTabDefaultCompletionType = "context"
 
 " jsfmt
 let g:js_fmt_autosave = 1
@@ -109,6 +106,9 @@ let g:vim_markdown_folding_disabled=1
 
 " gist-vim
 let g:gist_post_private = 1
+
+" neocomplete
+let g:neocomplete#enable_at_startup = 1
 
 " strip trailing spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -145,14 +145,6 @@ set laststatus=2    " for displaying airline
 " folding
 set fdm=indent
 set fdl=99
-
-
-function! SetAltPrefs()
-    set tabstop=2
-    set softtabstop=2
-    set shiftwidth=2
-endfunction
-au FileType xml,html,xhtml,javascript call SetAltPrefs()
 
 au BufRead,BufNewFile Podfile set filetype=ruby
 
