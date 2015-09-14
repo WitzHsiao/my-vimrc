@@ -14,6 +14,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " Plugins
     " languages
+Plugin 'slim-template/vim-slim.git'
 Plugin 'scrooloose/syntastic'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mattn/emmet-vim'
@@ -38,6 +39,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'mattn/webapi-vim' " gist-vim
 Plugin 'mattn/gist-vim' " gist-vim
     " interface
+Plugin 'severin-lemaignan/vim-minimap'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mru.vim'
@@ -81,6 +83,8 @@ au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage)
 set completeopt-=preview
 let g:go_fmt_command = "goimports"
+let g:go_disable_autoinstall = 0
+
 
 " superTab
 "let g:SuperTabDefaultCompletionType = "context"
@@ -109,6 +113,10 @@ let g:gist_post_private = 1
 
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
+imap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+setlocal omnifunc=go#complete#Complete
 
 " strip trailing spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
