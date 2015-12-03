@@ -31,7 +31,7 @@ Plugin 'derekwyatt/vim-scala'
 "Plugin 'ervandew/supertab'
 Plugin 'Shougo/neocomplete.vim'
     " code display
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 Plugin 'gregsexton/MatchTag'
     " integrations
 Plugin 'majutsushi/tagbar'
@@ -86,6 +86,9 @@ let g:go_fmt_command = "goimports"
 let g:go_disable_autoinstall = 0
 
 
+" airline
+let g:airline_powerline_fonts = 1
+
 " superTab
 "let g:SuperTabDefaultCompletionType = "context"
 
@@ -94,13 +97,13 @@ let g:js_fmt_autosave = 1
 
 " syntastic
 let g:syntastic_php_checkers = ['php']
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_cpp_no_include_search = 1
 let g:syntastic_cpp_no_default_include_dirs = 1
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
-" solarized
-let g:solarized_termcolors=256
+" dracula
+color dracula
 
 " vim-markdown
 let g:vim_markdown_folding_disabled=1
@@ -121,10 +124,7 @@ setlocal omnifunc=go#complete#Complete
 " strip trailing spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
 
-
 syntax enable       " enable syntax processing
-set background=dark
-colorscheme solarized
 set smartindent
 set shiftwidth=4    " 設定縮排寬度
 set tabstop=4       " number of visual spaces per TAB
