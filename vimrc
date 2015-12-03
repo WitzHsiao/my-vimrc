@@ -1,6 +1,7 @@
 " Vundle Settings
 set nocompatible              " be iMproved, required
 filetype off                  " required
+let mapleader=","
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -85,9 +86,14 @@ set completeopt-=preview
 let g:go_fmt_command = "goimports"
 let g:go_disable_autoinstall = 0
 
-
 " airline
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1    " Enable the list of buffers
+set laststatus=2    " for displaying airline
+nmap <leader>T :enew<cr>
+nmap <leader>l :bnext<CR>
+nmap <leader>h :bprevious<CR>
+nmap <leader>bq :bp <BAR> bd #<CR>
 
 " superTab
 "let g:SuperTabDefaultCompletionType = "context"
@@ -148,7 +154,6 @@ set encoding=utf-8
 set fileencodings=utf-8
 
 set showmode        " display the mode currently use
-set laststatus=2    " for displaying airline
 
 " folding
 set fdm=indent
