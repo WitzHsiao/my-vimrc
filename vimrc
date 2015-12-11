@@ -32,7 +32,6 @@ Plugin 'derekwyatt/vim-scala'
 "Plugin 'ervandew/supertab'
 Plugin 'Shougo/neocomplete.vim'
     " code display
-Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 Plugin 'gregsexton/MatchTag'
     " integrations
 Plugin 'majutsushi/tagbar'
@@ -40,7 +39,6 @@ Plugin 'mileszs/ack.vim'
 Plugin 'mattn/webapi-vim' " gist-vim
 Plugin 'mattn/gist-vim' " gist-vim
     " interface
-Plugin 'severin-lemaignan/vim-minimap'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mru.vim'
@@ -108,9 +106,6 @@ let g:syntastic_cpp_no_include_search = 1
 let g:syntastic_cpp_no_default_include_dirs = 1
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
-" dracula
-color dracula
-
 " vim-markdown
 let g:vim_markdown_folding_disabled=1
 
@@ -161,6 +156,7 @@ set fdl=99
 
 au BufRead,BufNewFile Podfile set filetype=ruby
 
+nmap <leader>i :TagbarToggle<CR>
 nmap <C-n> :NERDTreeToggle<CR>
 nmap <C-l> :noh<CR>
 nmap <leader>q :qa<CR>
